@@ -9,7 +9,7 @@
 
 ### Association
 - has_many :messages
-- has_many :groups
+- has_many :groups, through: :members
 
 
 
@@ -19,7 +19,7 @@
 |name|string|null: false|
 
 ### Association
-- has_many :users
+- has_many :users, through: :members
 - has_many :messages
 
 ## membersテーブル（中間テーブル）
