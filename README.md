@@ -35,6 +35,8 @@
 
 
 
+
+
 ###messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
