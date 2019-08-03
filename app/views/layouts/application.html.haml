@@ -7,27 +7,27 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .left_contents
-      .left_header
-        .container_left
-          %ul
+    .side
+      .side__header
+        .user__info
+          %ul.user__info__menu
             %li
-              %a 
+              %a{ :href => ""}
                 = fa_icon 'edit'
             %li
-              %a 
+              %a{ :href => ""}
                 = fa_icon 'cog'
-          %p 
+          %p.user__info_name 
             ユーザー名
-      .left_contents
+      .groups_contents
         .groups
           = render partial: "temp/group"
               
-    .right_contents
-      .right_header
-        .container_right
+    .main
+      .main__header
+        .main__container
           = link_to "Edit",root_path, class:"btn" 
-          .header_group_name
+          .main__header_group
             %h1
               グループ名
             %ul
@@ -41,21 +41,18 @@
                 メンバ−３
               %li
                 メンバー4
-      .right_body
+      .main__body
         .messages
           =render partial: "temp/message" 
-        .right_footer
-          .new_text_fild
-            %form{:action => "messages_path", :method => "post"}
-              .box__text
-                %input{:type => "text", :placeholder => "type a message", :class => "input_box_text"}
-                %label{:class => "input_box_image", :for => "message_image"}
-                  = fa_icon 'image',class:'image_ico'
-                  %input{:class => "input_message_image", :type => "file", :name => "message[image]", :id => "input_message_image"}
-              %input.submit_btn{:type =>"submit", :name => "botan", :value => "Send"}
-
-
-    -# = render partial: 'layouts/flash'
+        .form
+          %form
+            .input_box
+            %input.form__message{ :type => "text", :placeholder =>"type a message" }
+            .form__mask
+              %label.form__mask__image
+                = fa_icon 'picture-o', class: 'icon'
+                %input.hidden{type: 'file'}
+            %input.form__submit{type: 'submit', value: 'Send'}
     = yield
 
 

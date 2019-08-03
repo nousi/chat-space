@@ -1,8 +1,9 @@
-@import "reset";
+@import "config/reset";
 @import "font-awesome";
 @import "message";
+@import "group";
 
-* {
+*{
   box-sizing: border-box;
 
 }
@@ -22,70 +23,53 @@
   clear: both;
   display: block;
 }
-.container_left{
-  padding: 0 20px;
-  line-height: 100px;
-}
 
-.container_right{
+.main__container{
   padding: 0 40px; 
 }
 
-.left_contents{
+.side{
   width: 300px;
   height: 100vh;
   float: left;
   position: fixed;
-  .left_header{
+  &__header{
     width: 300px;
     height: 100px;
     background: #253141;
     color: #fff;
-    ul{
-      float: right;
-      li{
-        display: inline-block;
-      }
-    }
-  }
-  .left_contents{
-    width: 300px;
-    height: 100vh;
-    background: #2F3E51;
-    float: left;
-    .groups{
-      height: calc(100vh - 100px);
-      padding: 20px 20px 0;
-      a{
-        text-decoration: none;
-        color: #fff;
-      .group{
-        margin-bottom: 40px;
-          .group__group_neme{
-            font-size: 15px;
-            margin-bottom:5px;
-          }
-          .group__last_message{
-            font-size: 11px;
+    .user__info{
+      padding: 0 20px;
+      line-height: 100px;
+      &__menu{
+        float: right;
+        li{
+          display: inline-block;
+          a{
+            text-decoration: none;
+            color: #fff;
           }
         }
       }
+      &_name{
+        font-weight: bold;
+      }
+
     }
   }
 }
-.right_contents{
+.main{
   width: calc(100% - 300px);
   height: 100vh;
   float: right;
   background: #FAFAFA;
-  overflow: scroll;
-  .right_header{
+  &__header{
     width: 100%;
     height: 100px;
     background: #fff;
     border-bottom: solid #eeeeee 1px;
-    // position: fixed;
-    .header_group_name{
+    position: fixed;
+    &_group{
       margin-top: 35px; 
       float: left;
       h1{
@@ -101,70 +85,54 @@
       }
     }
   }
-  .right_body{
+  &__body{
     width: calc(100vw - 300px);
-    height: 100%;
-    background: #FAFAFA;
-    overflow: scroll;
-  .messages{
+    // height: 100%;
+    .messages{
     padding: 46px 40px;
     overflow: scroll;
+    background: #FAFAFA;
+    height: 100%;
     }
-    .right_footer{
-      width: calc(100vw - 300px); //ここは質問するべき箇所
+    .form {
+      background-color: #DDDDDD;
+      box-sizing: border-box;
+      width: calc(100% - 300px);
       height: 90px;
-      padding: 20px 40px;
-      background: #ddd;
+      padding: 20px 50px 20px 40px;
       position: fixed;
       bottom: 0;
-      .new_text_fild{
-        // background: red;
-        height: 100%;
-        .box__text{
-          height: 50px;
-          width: calc(100% - 115px);
-          background: #fff;
-          float: left;
-          color: #757575;
-          font-size: 16px;
-          line-height: 50px;
-          position: relative;
-          .input_box_text{
-            height: 50px;
-            width: 100%;
-            border: none;
-            float: left;
-            padding: 0 40px 0 10px;
-          }
-          .input_message_image{
-            display: none;
-          }
-          .input_box_image{
-            cursor: pointer;
-            position: absolute;
-            right: 0;
-            top: 0;
-          }
-          .image_ico{
-            float: right;
-            margin: 15px 10px 0 0;
-            font-size: 21px; 
-            color: #000;
-          }
-        }
-        .submit_btn{
-          width: 100px;
-          height: 50px;
-          margin-left: 15px;
-          padding: 0 30px;
-          float: right;
-          line-height: 50px;
-          background: #38aef0;
-          color: white;
-          cursor: pointer;
-        }
-
+      &__message {
+        border: none;
+        float: left;
+        height: 50px;
+        width: calc(100% - 150px);
+        padding:0 40px 0 10px; 
       }
+      &__mask {
+        background-color:#fff;
+        float: left;
+        height: 50px;
+        padding-right: 10px;
+        &__image {
+          font-size: 20px;
+          line-height: 50px;
+        }
+        .hidden {
+          display: none;
+        }
+      }
+      &__submit {
+        background-color: #45AEF0;
+        border: none;
+        color: #fff;
+        float: right;
+        font-size: 16px;
+        height: 50px;
+        margin-left: 15px;
+        padding: 0 30px;
+      }
+      
     }
   }
 }
