@@ -1,0 +1,67 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpace
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .left_contents
+      .left_header
+        .container_left
+          %ul
+            %li
+              %a 
+                = fa_icon 'edit'
+            %li
+              %a 
+                = fa_icon 'cog'
+          %p 
+            ユーザー名
+      .left_contents
+        .groups
+          %a(href="")
+            .group
+              %p.group__group_neme
+                グループ1
+              %p.group__last_message
+                これが最後のテキスト
+              
+    .right_contents
+      .right_header
+        .container_right
+          = link_to "Edit",root_path, class:"btn" 
+          .header_group_name
+            %h1
+              グループ名
+            %ul
+              %li
+                Member：
+              %li
+                メンバー１
+              %li
+                メンバー２
+              %li
+                メンバ−３
+              %li
+                メンバー4
+      .right_body
+        .messages
+          =render partial: "temp/message" 
+        .right_footer
+          .new_text_fild
+            %form{:action => "messages_path", :method => "post"}
+              .box__text
+                %input{:type => "text", :placeholder => "type a message", :class => "input_box_text"}
+                %label{:class => "input_box_image", :for => "message_image"}
+                  = fa_icon 'image',class:'image_ico'
+                  %input{:class => "input_message_image", :type => "file", :name => "message[image]", :id => "input_message_image"}
+              %input.submit_btn{:type =>"submit", :name => "botan", :value => "Send"}
+
+
+    -# = render partial: 'layouts/flash'
+    = yield
+
+
+

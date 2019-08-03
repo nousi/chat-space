@@ -1,0 +1,171 @@
+@import "reset";
+@import "font-awesome";
+@import "message";
+
+* {
+  box-sizing: border-box;
+
+}
+
+.btn{
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  margin-top: 30px;
+  border: solid 1px #38AEF0;
+  float: right;
+  color: #38AEF0;
+  cursor: pointer;
+}
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.container_left{
+  padding: 0 20px;
+  line-height: 100px;
+}
+
+.container_right{
+  padding: 0 40px; 
+}
+
+.left_contents{
+  width: 300px;
+  height: 100vh;
+  float: left;
+  position: fixed;
+  .left_header{
+    width: 300px;
+    height: 100px;
+    background: #253141;
+    color: #fff;
+    ul{
+      float: right;
+      li{
+        display: inline-block;
+      }
+    }
+  }
+  .left_contents{
+    width: 300px;
+    height: 100vh;
+    background: #2F3E51;
+    float: left;
+    .groups{
+      height: calc(100vh - 100px);
+      padding: 20px 20px 0;
+      a{
+        text-decoration: none;
+        color: #fff;
+      .group{
+        margin-bottom: 40px;
+          .group__group_neme{
+            font-size: 15px;
+            margin-bottom:5px;
+          }
+          .group__last_message{
+            font-size: 11px;
+          }
+        }
+      }
+    }
+  }
+}
+.right_contents{
+  width: calc(100% - 300px);
+  height: 100vh;
+  float: right;
+  background: #FAFAFA;
+  overflow: scroll;
+  .right_header{
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    border-bottom: solid #eeeeee 1px;
+    // position: fixed;
+    .header_group_name{
+      margin-top: 35px; 
+      float: left;
+      h1{
+        font-size: 20px;
+      }
+      ul{
+        margin-top: 15px;
+        font-size: 12px;
+        color: #999999;
+        li{
+          display: inline;
+        }
+      }
+    }
+  }
+  .right_body{
+    width: calc(100vw - 300px);
+    height: 100%;
+    background: #FAFAFA;
+    overflow: scroll;
+  .messages{
+    padding: 46px 40px;
+    overflow: scroll;
+    }
+    .right_footer{
+      width: calc(100vw - 300px); //ここは質問するべき箇所
+      height: 90px;
+      padding: 20px 40px;
+      background: #ddd;
+      position: fixed;
+      bottom: 0;
+      .new_text_fild{
+        // background: red;
+        height: 100%;
+        .box__text{
+          height: 50px;
+          width: calc(100% - 115px);
+          background: #fff;
+          float: left;
+          color: #757575;
+          font-size: 16px;
+          line-height: 50px;
+          position: relative;
+          .input_box_text{
+            height: 50px;
+            width: 100%;
+            border: none;
+            float: left;
+            padding: 0 40px 0 10px;
+          }
+          .input_message_image{
+            display: none;
+          }
+          .input_box_image{
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          .image_ico{
+            float: right;
+            margin: 15px 10px 0 0;
+            font-size: 21px; 
+            color: #000;
+          }
+        }
+        .submit_btn{
+          width: 100px;
+          height: 50px;
+          margin-left: 15px;
+          padding: 0 30px;
+          float: right;
+          line-height: 50px;
+          background: #38aef0;
+          color: white;
+          cursor: pointer;
+        }
+
+      }
+    }
+  }
+}
+

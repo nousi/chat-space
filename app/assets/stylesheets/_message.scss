@@ -1,0 +1,25 @@
+.message{
+  padding-bottom: 40px; 
+  .message__info{
+    margin:0 0 10px; 
+    .message__info_upper_name{
+      font-size: 16px;
+      font-weight: bold;
+      color: #434a54;
+      float: left;
+
+    }
+    .message__info_upper_date{
+      font-size: 12px;
+      margin-left: 10px;
+      color: #999999;
+      float: left; 
+
+    }
+  }  
+  .message__text{
+    font-size: 14px;
+    color: #434a54;
+    margin:0 0 10px;
+  }   
+}
