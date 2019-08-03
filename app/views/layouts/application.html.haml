@@ -21,12 +21,7 @@
             ユーザー名
       .left_contents
         .groups
-          %a(href="")
-            .group
-              %p.group__group_neme
-                グループ1
-              %p.group__last_message
-                これが最後のテキスト
+          = render partial: "temp/group"
               
     .right_contents
       .right_header
