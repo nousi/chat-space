@@ -1,60 +1,14 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
     %title ChatSpace
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .side
-      .side__header
-        .user__info
-          %ul.user__info__menu
-            %li
-              %a{ :href => ""}
-                = fa_icon 'edit'
-            %li
-              %a{ :href => ""}
-                = fa_icon 'cog'
-          %p.user__info_name 
-            ユーザー名
-      .groups_contents
-        .groups
-          = render partial: "temp/group"
-              
-    .main
-      .main__header
-        .main__container
-          .btn_area
-            = link_to "Edit",root_path, class:"btn" 
-          .main__header_group
-            %h1
-              グループ名
-            %ul
-              %li
-                Member：
-              %li
-                メンバー１
-              %li
-                メンバー２
-              %li
-                メンバ−３
-              %li
-                メンバー4
-      .main__body
-        .messages
-          =render partial: "temp/message" 
-        .form
-          %form
-            .input_box
-            %input.form__message{ :type => "text", :placeholder =>"type a message" }
-            .form__mask
-              %label.form__mask__image
-                = fa_icon 'picture-o', class: 'icon'
-                %input.hidden{type: 'file'}
-            %input.form__submit{type: 'submit', value: 'Send'}
     = yield
+
 
 
 
