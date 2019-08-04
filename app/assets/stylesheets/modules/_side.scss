@@ -1,0 +1,30 @@
+.side{
+  width: 300px;
+  height: 100vh;
+  float: left;
+  position: fixed;
+  &__header{
+    width: 300px;
+    height: 100px;
+    background: #253141;
+    color: $white;
+    .user__info{
+      padding: 0 20px;
+      line-height: 100px;
+      &__menu{
+        float: right;
+        li{
+          display: inline-block;
+          .menu{
+            text-decoration: none;
+            color: $white;
+          }
+        }
+      }
+      &_name{
+        font-weight: bold;
+      }
+
+    }
+  }
+}
