@@ -13,15 +13,9 @@
   .groups_contents
     .groups
       - current_user.groups.each do |group|
-        = link_to "", class: "menu" do
+        = link_to group_messages_path(group), class: "menu" do
           .group
             .group__group_name
-              グループ1
+              = group.name
             .group__last_message
-              これが最後のテキスト
-        = link_to "", class: "menu" do
-          .group
-            %p.group__group_name
-              グループ2
-            %p.group__last_message
               これが最後のテキスト
