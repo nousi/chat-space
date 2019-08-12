@@ -1,0 +1,9 @@
+.groups_contents
+  .groups
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group), class: "menu" do
+        .group
+          .group__group_name
+            = group.name
+          %p.group__last_message
+            これが最後のテキスト

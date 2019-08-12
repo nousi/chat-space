@@ -5,18 +5,9 @@
         = link_to "Edit",edit_group_path(@group), class:"btn" 
       .main__header_group
         %h1
-          グループ名
-        %ul
-          %li
-            Member：
-          %li
-            メンバー１
-          %li
-            メンバー２
-          %li
-            メンバ−３
-          %li
-            メンバー4
+          = @group.name
+        = render 'temp/member'
+
   .main__body
     .messages
       =render partial: "temp/message" 
