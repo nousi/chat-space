@@ -8,6 +8,6 @@ class MessagesController < ApplicationController
 
   private
   def set_group
-    @group = messages.group.find(params[:id])
+    @group = Group.find(params[:group_id])
   end
 end
