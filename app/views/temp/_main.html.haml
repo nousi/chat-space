@@ -12,11 +12,11 @@
     .messages
       =render partial: "temp/message" 
     .form
-      %form
+      = form_for [@group,@message] do |f|
         .input_box
-        %input.form__message{ type: "text", placeholder: "type a message" }
+        = f.input :text, class:'form__message', placeholder: "type a message"
         .form__mask
-          %label.form__mask__image
+          = f.label :image, class: 'form__mask__image'
             = fa_icon 'picture-o', class: 'icon'
-            %input.hidden{type: 'file'}
-        %input.form__submit{type: 'submit', value: 'Send'}
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
