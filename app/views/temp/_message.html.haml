@@ -1,11 +1,10 @@
-- @messages.each do |message|
-  .message
-    .message__info.clearfix
-      %p.message__info_upper_name
-        = message.user.name
-      %p.message__info_upper_date
-        = message.created_at
-    - if message.text.present?
-      %p.message__text
-        = message.text
-    = image_tag message.image.url if message.image.present?
+.message
+  .message__info.clearfix
+    %p.message__info_upper_name
+      = message.user.name
+    %p.message__info_upper_date
+      = message.created_at.strftime("%Y/%m/%d %H:%M")
+  - if message.text.present?
+    %p.message__text
+      = message.text
+  = image_tag message.image.url,　class: 'lower-message__image' if message.image.present?
