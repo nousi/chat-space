@@ -10,7 +10,7 @@
 
   .main__body
     .messages
-      =render partial: "temp/message" 
+      = render partial: "temp/message", collection: @messages 
     .form
       = form_for [@group, @message] do |f|
         .input_box
