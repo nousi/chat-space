@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-describe MessageController do
+describe MessagesController do
   let(:group) { create(:group) }
-  let(:user) { creawte(:user) }
+  let(:user) { create(:user) }
 
   describe '#index' do
 
@@ -17,7 +17,7 @@ describe MessageController do
       end
 
       it 'assigns @group' do
-        expecct(assigns(:group)).to eq group
+        expect(assigns(:group)).to eq group
       end
 
       it 'render index' do
@@ -60,18 +60,19 @@ describe MessageController do
       end
 
       context 'can not save' do
-        let(:params) {{group_id:group.id, user_id: user.id, message: attributes_for(:message, text: nil, image: nil)}}
+        let(:invalid_params) {{group_id:group.id, user_id: user.id, message: attributes_for(:message, text: nil, image: nil)}}
 
         subject {
-          post :create
+          post :create,
           params: invalid_params
         }
+        
         it 'does not count up' do
           expect { subject }.not_to change(Message, :count)
         end
 
         it 'renders index' do
-          subuject
+          subject
           expect(response).to render_template :index
         end
       end
