@@ -12,7 +12,7 @@
     .messages
       = render partial: "temp/message", collection: @messages 
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: {id: "new_comment"} do |f|
         .input_box
         = f.text_field :text, class:'form__message', placeholder: "type a message"
         .form__mask
