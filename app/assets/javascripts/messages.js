@@ -12,5 +12,10 @@ $(function(){
       processData: false,
       contentType: false
     })
+    .done(funciton(data){
+      var html = buildHTML(data);
+      $('').append(html)
+      $('.form__message').val('')
+    })
   })
 })
