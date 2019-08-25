@@ -37,8 +37,6 @@ $(function(){
     e.preventDefault();
     console.log(this)
     var formData = new FormData(this);
-    // var href = location.href
-    // var href = '/groups/${message.}/messages'
     $.ajax({
       url: location.href,
       type: 'POST',
