@@ -1,41 +1,41 @@
 $(function(){
   function buildHTML(message){
-    if(message.image_url){
-      var html = `<div class="message">
-                    <div class="message__info clearfix">
-                      <p class="message__info_upper_name">
-                        ${message.user_name}
-                      </p>
-                      <p class="message__info_upper_date">
-                        ${message.created_at}
-                      </p>
-                    </div>
-                    <p class="message__text">
-                      ${message.text}
-                    </p>
-                    <img class="lower-message__image" src="${message.image_url}">
-                  </div>`
-      return html;
-    } else{
-      var html = `<div class="message">
-                    <div class="message__info clearfix">
-                      <p class="message__info_upper_name">
-                        ${message.user_name}
-                      </p>
-                      <p class="message__info_upper_date">
-                        ${message.created_at}
-                      </p>
-                    </div>
-                    <p class="message__text">
-                      ${message.text}
-                    </p>
-                  </div>`
-      return html;
-    }
+    var html =(
+      (message.image_url)
+      ?(`<div class="message">
+          <div class="message__info clearfix">
+            <p class="message__info_upper_name">
+              ${message.user_name}
+            </p>
+            <p class="message__info_upper_date">
+              ${message.created_at}
+            </p>
+          </div>
+          <p class="message__text">
+            ${message.text}
+          </p>
+          <img class="lower-message__image" src="${message.image_url}">
+        </div>`
+        )
+      :(`<div class="message">
+            <div class="message__info clearfix">
+              <p class="message__info_upper_name">
+                ${message.user_name}
+              </p>
+              <p class="message__info_upper_date">
+                ${message.created_at}
+              </p>
+            </div>
+            <p class="message__text">
+              ${message.text}
+            </p>
+        </div>`
+      )
+    );
+    return html;
   }
   $('#new_comment').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     $.ajax({
       url: location.href,
@@ -48,7 +48,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data)
       $('.messages').append(html)
-      $('.form__message').val('')
+      $('#new_comment')[0].reset();
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
   
     })
