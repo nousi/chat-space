@@ -1,8 +1,12 @@
 $(function(){
   function buildHTML(message){
-    var html =(
+    var image = (
       (message.image_url)
-      ?(`<div class="message">
+      ? (message.image_url)
+      : ("")
+    );
+    var html =(
+      (`<div class="message">
           <div class="message__info clearfix">
             <p class="message__info_upper_name">
               ${message.user_name}
@@ -14,21 +18,7 @@ $(function(){
           <p class="message__text">
             ${message.text}
           </p>
-          <img class="lower-message__image" src="${message.image_url}">
-        </div>`
-        )
-      :(`<div class="message">
-            <div class="message__info clearfix">
-              <p class="message__info_upper_name">
-                ${message.user_name}
-              </p>
-              <p class="message__info_upper_date">
-                ${message.created_at}
-              </p>
-            </div>
-            <p class="message__text">
-              ${message.text}
-            </p>
+          <img class="lower-message__image" src="${image}">
         </div>`
       )
     );
