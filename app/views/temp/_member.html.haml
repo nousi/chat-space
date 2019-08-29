@@ -1,11 +1,6 @@
 %ul
   %li
     Member：
-  %li
-    メンバー１
-  %li
-    メンバー２
-  %li
-    メンバ−３
-  %li
-    メンバー4
+  -@group.users.each do |user|
+    %li
+      #{user.name},
