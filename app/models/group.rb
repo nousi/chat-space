@@ -3,6 +3,7 @@ class Group < ApplicationRecord
   has_many :members
   has_many :messages
   validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   
 
   def show_last_message
