@@ -28,7 +28,6 @@ $(function() {
 
   $("#user-search-field").on("keyup",function() {
     var input = $("#user-search-field").val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -49,7 +48,9 @@ $(function() {
       
     })
     
-    .fail()
+    .fail(function(){
+      alert('ユーザー検索に失敗しました')
+    })
     
     
   });
