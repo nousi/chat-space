@@ -1,6 +1,6 @@
 $(function() {
   var search_list = $("#user-search-result");
-  var preWord;
+  // var preWord;
   function appendList(user){
     var html = `<div class="chat-group-user clearfix">
     <p class="chat-group-user__name">${user.name}</p>
@@ -16,21 +16,21 @@ $(function() {
     search_list.append(html);
   }
 
-  function editElement(element) {
-    var result = "^" + element;
-    return result;
-  }
+  // function editElement(element) {
+  //   var result = "^" + element;
+  //   return result;
+  // }
   $("#user-search-field").on("keyup",function() {
     var input = $("#user-search-field").val();
-    var search_wards_split = input.split(" ").filter(function(e) { return e; });
-    var search_wards = search_wards_split.map(editElement);
-    var word = search_wards.join("|");
-    var reg = RegExp(word);
+    // var search_wards_split = input.split(" ").filter(function(e) { return e; });
+    // var search_wards = search_wards_split.map(editElement);
+    // var word = search_wards.join("|");
+    // var reg = RegExp(word);
     console.log(input);
 
     $.ajax({
       type: 'GET',
-      url: '/groups/new',
+      url: '/users',
       data: { keyword: input },
       dataType: 'json'
     })
@@ -42,14 +42,15 @@ $(function() {
         });
       }
       else {
-        $("#user-search-result").empty();
-        appendErrMsgToHTML("一致する映画はありません");
+        appendErrMsgToHTML("一致するユーザーはいません");
       }
+
     })
  
     .fail()
     
 
   });
+  $('')
 });
 
