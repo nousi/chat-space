@@ -3,5 +3,3 @@ json.array! @users do |user|
   json.id   user.id
 end
 
-json.select_name @user.name
-json.select_id 	 @user.id
