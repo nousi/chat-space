@@ -1,7 +1,6 @@
 $(function() {
   var search_list = $("#user-search-result");
   var group_list = $('.chat-group-users');
-  // var preWord;
   function appendList(user){
     var html = `<div class="chat-group-user clearfix">
     <p class="chat-group-user__name">${user.name}</p>
@@ -27,16 +26,8 @@ $(function() {
     search_list.append(html);
   }
 
-  // function editElement(element) {
-  //   var result = "^" + element;
-  //   return result;
-  // }
   $("#user-search-field").on("keyup",function() {
     var input = $("#user-search-field").val();
-    // var search_wards_split = input.split(" ").filter(function(e) { return e; });
-    // var search_wards = search_wards_split.map(editElement);
-    // var word = search_wards.join("|");
-    // var reg = RegExp(word);
     console.log(input);
     $.ajax({
       type: 'GET',
@@ -64,7 +55,6 @@ $(function() {
   });
   $(document).on('click', ".user-search-add", function(users){
     var user = $(this).data();
-    console.log(user)
     appendGroupList(user)
   })
   $(document).on('click', ".user-search-remove", function(){
