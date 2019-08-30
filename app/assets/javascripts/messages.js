@@ -56,16 +56,13 @@ $(function(){
         var href = 'api/messages#index {:format=>"json"}'
         var last_message_id = $('.message:last').data('id');
         $.ajax({
-          // url: window.location.href + '/api/messages',
           url: href,
           type: 'GET',
           dataType: 'json',
           data: {id: last_message_id}
         })
         .done(function(messages){
-          console.log('成功')
           var insertHTML = '';
-            console.log(messages)
             messages.forEach(function(message){
               insertHTML = buildHTML(message);
               $('.messages').append(insertHTML);
