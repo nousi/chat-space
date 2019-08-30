@@ -1,4 +1,4 @@
-.message
+.message{"data-id": "#{message.id}", "data-user-name": "#{message.user.name}", "data-image": "#{message.image}", "data-text": "#{message.text}", "data-created-at": "#{message.created_at}"}
   .message__info.clearfix
     %p.message__info_upper_name
       = message.user.name
