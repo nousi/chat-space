@@ -1,4 +1,4 @@
-app_path = File.expand_path('../../', __FILE__)
+app_path = File.expand_path('../../../', __FILE__)
 worker_processes 1
 working_directory "#{app_path}/current"
 listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
@@ -21,7 +21,7 @@ before_fork do |server, worker|
   if run_once
     run_once = false 
   end
-  
+
 
   old_pid = "#{server.config[:pid]}.oldbin"
   if File.exist?(old_pid) && server.pid != old_pid
